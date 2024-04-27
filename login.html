@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/font awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Login</title>
+    <style>
+        body { 
+           background-color:white; 
+         } 
+         .error 
+           { color:hsl(0, 93%, 49%); 
+             width:300px; 
+             text-align:center; 
+             padding:2px10px; 
+             margin-left:10px; 
+           } 
+        .container form { 
+             max-width: 460px; 
+             margin: 40px auto; 
+             padding: 40px; 
+             border: 14px solid #ddd; 
+             border-radius: 10px; 
+             background-color: rgb(13, 108, 223); 
+             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); 
+          } 
+        h1 {
+          text-align:center;
+        }
+        p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav id="main-navbar"class="navbar navbar-expand-md navbar-dark bg-primary  py-0 ">
+        <div class="container">
+            <a class="navbar-brand"href="index.html">
+                <h3>GEIBYTIBLE</h3>
+            </a>
+            <div class=""id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link p-4 active"href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-4 "href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-4"href="article.html">Article</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-4"href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-4"href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+        <h1 class="fw-bold">FORM LOG IN MEMBER GEIBYTIBLE</h1><br>
+        <p>Masa Kejayaan ada pada di tangan para pemuda angkatan delapan<br>
+            yang memiliki kemampuan dan skill yang tidak dapat di hancurkan<br> 
+            sekalipun oleh ribuan musuh-musuh ALLAH</p> 
+    <div class="container form"> 
+       <form id="registrationForm"> 
+        <label for="username">Username:</label><br><br> 
+        <input type="text" id="username" name="username"><br><br> 
+         <span id="usernameError" class="error"></span><br>
+        <label for="password">Password:</label><br><br> 
+         <input type="password" id="password" name="password"><br><br> 
+        <span id="passwordError" class="error"></span><br><br> 
+         <label for="repeatPassword">Repeat Password:</label><br><br> 
+        <input type="password" id="repeatPassword" name="repeatPassword"><br><br> 
+         <span id="repeatPasswordError" class="error"></span><br><br> 
+         <label for="email">Email:</label><br><br> 
+         <input type="email" id="email" name="email"><br><br> 
+         <span id="emailError" class="error"></span><br><br> 
+        <input type="checkbox" id="terms" name="terms">
+         <label for="terms">I accept the terms and conditions</label><br><br> 
+         <span id="termsError" class="error"></span><br><br> 
+         <input type="submit" value="Submit"> 
+       </form> 
+     </div> 
+  
+     <script> 
+        const registrationForm = document.getElementById('registrationForm'); 
+         const username = document.getElementById('username'); 
+        const password = document.getElementById('password'); 
+         const repeatPassword = document.getElementById('repeatPassword'); 
+         const email = document.getElementById('email'); 
+         const terms = document.getElementById('terms'); 
+         const usernameError = document.getElementById('usernameError'); 
+         const passwordError = document.getElementById('passwordError'); 
+         const repeatPasswordError = document.getElementById('repeatPasswordError'); 
+         const emailError = document.getElementById('emailError'); 
+         const termsError = document.getElementById('termsError'); 
+
+           function validateRegistrationForm() { 
+              if (username.value.trim() === '') { 
+                   usernameError.textContent = 'username belum diisi';
+               } else { 
+                  usernameError.textContent = ''; 
+               } 
+
+              if (password.value.trim() === '') { 
+                   passwordError.textContent = 'Password anda salah.';
+               } else { 
+                   passwordError.textContent = '';
+               } 
+
+               if (repeatPassword.value.trim() === '') { 
+                   repeatPasswordError.textContent = 'Password anda tidak sesuai.'; 
+               } else if (repeatPassword.value !== password.value) { 
+                   repeatPasswordError.textContent = 'Password anda tidak sesuai.'; 
+               } else { 
+                   repeatPasswordError.textContent = ''; 
+               } 
+
+               if (email.value.trim() === '') { 
+                   emailError.textContent = 'Email anda salah.'; 
+               } else { 
+                   emailError.textContent = ''; 
+               } 
+
+              if (!terms.checked) { 
+                   termsError.textContent = 'apakah data yang kamu simpan sudah benar.'; 
+               } else { 
+                  termsError.textContent = ''; 
+              } 
+
+              if (usernameError.textContent === '' && passwordError.textContent === '' && repeatPasswordError.textContent === '' && emailError.textContent === '' && termsError.textContent === '') {
+                  console.log('username');
+                  console.log('password');
+                  console.log('repeatPassword');
+                  console.log('email');
+                  console.log('terms');
+                  // You can add code here to submit the form data to a server, for example. 
+              }
+           }
+       registrationForm.addEventListener('submit', (e) => {
+           e.preventDefault();
+           validateRegistrationForm();
+      });
+    </script>
+    <footer id="contact"class="text-white bg-primary py-4">
+        <div class="container"> 
+            <div class="row">
+                <div class="col-md-6 text-center text-md-left">
+                    <a href="index.html">
+                        <img src="img/img/geibytible.png"style="height: 80px;">
+                    </a>
+                    <p>Masa Kejayaan ada pada di tangan para pemuda angkatan delapan<br>
+                        yang memiliki kemampuan dan skill yang tidak dapat di hancurkan<br> 
+                        sekalipun oleh ribuan musuh-musuh ALLAH</p>
+                </div>
+                <div class="col-md-6 text-center mt-5">
+                    <h5>Hubungi Kami</h5>
+                        <div class="text-nowrap">
+                            <i class="fas fa-envelope fa-fw mr-3"></i>geibytibleofficial@gmail.com</div>
+                        <div class="text-nowrap"><i class="fas fa-phone fa-fw mr-3"></i>081222721034</div>
+                        <div class="text-nowrap"><i class="fab fa-instagram fa-fw mr-3"></i>@geibytibleofficial</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+</body>
+</html>
